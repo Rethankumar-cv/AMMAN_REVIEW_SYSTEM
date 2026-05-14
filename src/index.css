@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #F58220;
+  --color-primary-hover: #E07010;
+  --color-secondary: #4F4F4F;
+  --color-dark: #1A1A1A;
+  --color-surface: #FFFFFF;
+  --color-background: #F3F4F6;
+}
+
+@layer base {
+  :root {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    scroll-behavior: smooth;
+    overscroll-behavior-y: none; /* Prevent pull-to-refresh bounce on mobile */
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-dark);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Hide scrollbars for an app-like feel but keep functionality */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+  * {
+    scrollbar-width: none;
+  }
+}
