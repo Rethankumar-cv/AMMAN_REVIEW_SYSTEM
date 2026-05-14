@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PageContainer, AnimatedSection, SectionTitle } from '../components/layout/PageContainer';
 import { Header } from '../components/layout/Header';
-import { PrimaryButton, SecondaryButton } from '../components/ui/Button';
+import { PrimaryButton } from '../components/ui/Button';
 import { useReviewContext } from '../context/ReviewContext';
 import { SelectionProgressBar } from '../components/ui/SelectionProgressBar';
 import { Sparkles, ExternalLink, RefreshCw } from 'lucide-react';
@@ -14,7 +14,7 @@ import { motion } from 'framer-motion';
 
 export const ReviewSuggestionsPage = () => {
   const navigate = useNavigate();
-  const { reviewState, resetReview } = useReviewContext();
+  const { reviewState } = useReviewContext();
   
   const [suggestions, setSuggestions] = useState([]);
   const [copiedReview, setCopiedReview] = useState(null);
@@ -51,11 +51,6 @@ export const ReviewSuggestionsPage = () => {
     setCopiedReview(review);
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
-  };
-
-  const handleRestart = () => {
-    resetReview();
-    navigate('/');
   };
 
   return (
@@ -120,9 +115,6 @@ export const ReviewSuggestionsPage = () => {
         >
           Open Google Review
         </PrimaryButton>
-        <SecondaryButton onClick={handleRestart}>
-          Start Over
-        </SecondaryButton>
       </BottomActionBar>
     </PageContainer>
   );
