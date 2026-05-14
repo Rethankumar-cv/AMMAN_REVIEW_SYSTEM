@@ -8,26 +8,29 @@ export const Header = ({ showBack = false, title = '' }) => {
   const navigate = useNavigate();
   
   return (
-    <header className="px-5 py-4 flex items-center justify-between bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100/50 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]">
+    <header className="px-4 py-3 sm:px-5 sm:py-4 flex items-center justify-between bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100/50 shadow-sm pt-safe">
       {showBack ? (
         <motion.button 
           whileTap={{ scale: 0.9 }}
           onClick={() => navigate(-1)}
-          className="w-10 h-10 -ml-2 rounded-full flex items-center justify-center hover:bg-gray-100 active:bg-gray-200 transition-colors"
+          className="w-11 h-11 -ml-2 rounded-full flex items-center justify-center hover:bg-gray-50 active:bg-gray-100 transition-colors"
+          aria-label="Go back"
         >
-          <ChevronLeft className="text-dark" size={24} strokeWidth={2.5} />
+          <ChevronLeft className="text-dark" size={22} strokeWidth={2.5} />
         </motion.button>
       ) : (
-        <div className="w-10"></div>
+        <div className="w-11 h-11 flex-shrink-0"></div>
       )}
       
       {title ? (
-        <h1 className="text-lg font-bold text-dark tracking-tight">{title}</h1>
+        <h1 className="text-[17px] font-bold text-dark tracking-tight leading-none text-center flex-1">{title}</h1>
       ) : (
-        <Logo className="w-32" />
+        <div className="flex-1 flex justify-center">
+          <Logo className="w-28 sm:w-32" />
+        </div>
       )}
       
-      <div className="w-10"></div>
+      <div className="w-11 h-11 flex-shrink-0"></div>
     </header>
   );
 };

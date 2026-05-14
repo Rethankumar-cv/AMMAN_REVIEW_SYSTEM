@@ -30,6 +30,15 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Safe area utility classes for iOS */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
   /* Hide scrollbars for an app-like feel but keep functionality */
   ::-webkit-scrollbar {
     width: 0px;
